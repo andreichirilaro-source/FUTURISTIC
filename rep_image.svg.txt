@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Stylized neon recreation inspired by the provided image.
+     Save as rep_image.svg and push to your GitHub repo. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="2048" viewBox="0 0 2048 2048" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00101a"/>
+      <stop offset="1" stop-color="#001826"/>
+    </linearGradient>
+
+    <radialGradient id="glowBlue" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#00ffe1" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#002833" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="g"/>
+      <feColorMatrix in="g" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0.8
+                0 0 0 0 1
+                0 0 0 0.6 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <linearGradient id="roadBlue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#005f8a"/>
+    </linearGradient>
+
+    <linearGradient id="roadOrange" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffb64d"/>
+      <stop offset="1" stop-color="#ff6a00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- Distant city skyline (silhouettes) -->
+  <g fill="#001827" opacity="0.9">
+    <rect x="60" y="820" width="120" height="480"/>
+    <rect x="220" y="740" width="110" height="560"/>
+    <rect x="380" y="820" width="90" height="480"/>
+    <rect x="1460" y="720" width="140" height="620"/>
+    <rect x="1620" y="820" width="110" height="480"/>
+    <rect x="1780" y="760" width="150" height="540"/>
+  </g>
+
+  <!-- Planet / dome behind central figure -->
+  <g transform="translate(1024,640)">
+    <circle cx="0" cy="0" r="420" fill="#003744" opacity="0.9"/>
+    <circle cx="0" cy="0" r="420" fill="url(#glowBlue)" opacity="0.35" filter="url(#softGlow)"/>
+    <g opacity="0.06" transform="scale(1.1)">
+      <path d="M-320,-40 q120 -180 420 -220 q240 0 380 180 q-80 -240 -540 -140 q-220 40 -260 180z" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- Central stylized head / helmet -->
+  <g transform="translate(1024,700)">
+    <!-- helmet outer -->
+    <rect x="-260" y="-220" width="520" height="560" rx="80" ry="80" fill="#001f2b" stroke="#008fae" stroke-width="6" filter="url(#outerGlow)"/>
+    <!-- helmet inner lines -->
+    <g stroke="#00ffd8" stroke-width="6" fill="none" opacity="0.95">
+      <rect x="-160" y="-100" width="320" height="360" rx="48"/>
+      <path d="M-160,60 q160 60 320 0" stroke-linecap="round"/>
+      <path d="M-140,-60 q140 -60 280 0" stroke-linecap="round" opacity="0.5"/>
+    </g>
+
+    <!-- Central pillar with REPPO -->
+    <g transform="translate(0,200)">
+      <rect x="-160" y="-20" width="320" height="380" rx="18" fill="#002a33" stroke="#00e6ff" stroke-width="6" filter="url(#softGlow)"/>
+      <text x="0" y="180" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="92" fill="#00f1ff" font-weight="700">REPPO</text>
+      <rect x="-160" y="-20" width="320" height="380" rx="18" fill="none" stroke="#004b5f" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- Neon roads -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M320,1600 C560,1400 880,1300 1024,1300" stroke="url(#roadBlue)" stroke-width="28" fill="none" opacity="0.95"/>
+    <path d="M1728,1600 C1480,1400 1200,1300 1024,1300" stroke="url(#roadOrange)" stroke-width="28" fill="none" opacity="0.95"/>
+    <!-- inner glows -->
+    <path d="M320,1600 C560,1400 880,1300 1024,1300" stroke="#00ffd8" stroke-width="6" fill="none" opacity="0.6"/>
+    <path d="M1728,1600 C1480,1400 1200,1300 1024,1300" stroke="#ffd18a" stroke-width="6" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Silhouettes (simple) -->
+  <g fill="#01262b" opacity="0.95">
+    <ellipse cx="720" cy="1400" rx="40" ry="110"/>
+    <ellipse cx="820" cy="1420" rx="36" ry="98"/>
+    <ellipse cx="1160" cy="1420" rx="52" ry="120"/>
+    <ellipse cx="1320" cy="1400" rx="36" ry="106"/>
+    <ellipse cx="920" cy="1500" rx="24" ry="70"/>
+  </g>
+
+  <!-- Token style signposts -->
+  <g transform="translate(1280,1250)">
+    <!-- Bitcoin -->
+    <g transform="translate(260,120)">
+      <circle r="62" fill="#2b1200" stroke="#ffb84d" stroke-width="8" filter="url(#outerGlow)"/>
+      <text x="0" y="16" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" fill="#ffb84d" font-weight="700">฿</text>
+    </g>
+
+    <!-- Sol-like -->
+    <g transform="translate(380,120)">
+      <circle r="62" fill="#002033" stroke="#00d1ff" stroke-width="8" filter="url(#outerGlow)"/>
+      <text x="0" y="14" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" fill="#00d1ff" font-weight="700">S</text>
+    </g>
+  </g>
+
+  <g transform="translate(640,1250)">
+    <!-- Ethereum -->
+    <g transform="translate(-180,120)">
+      <circle r="62" fill="#002033" stroke="#00c7ff" stroke-width="8" filter="url(#outerGlow)"/>
+      <polygon points="0,-28 24,0 0,28 -24,0" fill="#00c7ff" opacity="0.95"/>
+    </g>
+
+    <!-- fetus / symbol -->
+    <g transform="translate(-320,80)">
+      <circle r="48" fill="#2b1200" stroke="#ffb84d" stroke-width="6"/>
+      <path d="M-12,0 q12 -18 24 0 q-8 12 -12 18 q-4 -6 -12 -18z" fill="#ffb84d"/>
+    </g>
+  </g>
+
+  <!-- Top icons (silhouettes & infinity) -->
+  <g transform="translate(1024,260)" fill="none" stroke="#00e6ff" stroke-width="5" opacity="0.9">
+    <circle cx="-520" cy="-20" r="56" stroke-opacity="0.8"/>
+    <path d="M-520,-70 q40 -40 80 0" stroke-opacity="0.25"/>
+    <path d="M480,-40 q60 -40 120 0" stroke-opacity="0.8"/>
+    <path d="M360,-40 q18 -20 36 0" stroke-opacity="0.9"/>
+  </g>
+
+  <!-- subtle grid lines / UI screens -->
+  <g stroke="#004b5f" stroke-width="4" opacity="0.5">
+    <rect x="1400" y="700" width="200" height="120" rx="10" fill="#002b34" />
+    <rect x="760" y="820" width="180" height="110" rx="10" fill="#002b34" />
+  </g>
+
+  <!-- Final glow overlay -->
+  <rect width="100%" height="100%" fill="transparent" filter="url(#softGlow)"/>
+</svg>
